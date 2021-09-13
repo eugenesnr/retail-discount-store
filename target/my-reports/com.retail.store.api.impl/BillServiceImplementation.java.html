@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BillServiceImplementation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">api</a> &gt; <a href="index.source.html" class="el_package">com.retail.store.api.impl</a> &gt; <span class="el_source">BillServiceImplementation.java</span></div><h1>BillServiceImplementation.java</h1><pre class="source lang-java linenums">package com.retail.store.api.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.retail.store.api.enums.UserEnums;
+import com.retail.store.api.model.Bill;
+import com.retail.store.api.model.Products;
+import com.retail.store.api.service.BillService;
+import com.retail.store.api.util.BillUtils;
+
+/*
+ * @author Tlotlo Lebotse
+ * @version 1.0
+ * @description Class implements service methods
+ * 
+ */
+@Service
+<span class="fc" id="L20">public class BillServiceImplementation implements BillService{</span>
+
+	/*
+	 * Method returns the total net amount based on the type of user
+	 * 
+	 * @param Bill
+	 * @return Bill With updated net total
+	 */
+	@Override
+	public Bill calcuteNetTotal(Bill bill) {
+<span class="pc bpc" id="L30" title="1 of 4 branches missed.">	    switch (bill.getUser().getType()) {</span>
+			case BillUtils.EMPLOYEE:
+<span class="fc" id="L32">				bill.setNetTotal(getNetTotal(bill.getProducts(),UserEnums.EMPLOYEE.getValue()));</span>
+<span class="fc" id="L33">				break;</span>
+			case BillUtils.AFFILIATE:
+<span class="fc" id="L35">				bill.setNetTotal(getNetTotal(bill.getProducts(),UserEnums.AFFILIATE.getValue()));</span>
+<span class="fc" id="L36">				break;</span>
+			case BillUtils.CUSTOMER:
+<span class="fc bfc" id="L38" title="All 2 branches covered.">				if(bill.getUser().isCustomerMoreThan2Years()) {</span>
+<span class="fc" id="L39">					bill.setNetTotal(getNetTotal(bill.getProducts(),UserEnums.CUSTOMER.getValue()));</span>
+				} else {
+<span class="fc" id="L41">					bill.setNetTotal(getNetTotal(bill.getProducts(),0));</span>
+				}
+<span class="fc" id="L43">				break;</span>
+		default:
+			break;
+		}
+<span class="fc" id="L47">		return bill;</span>
+	}
+	
+	/*
+	 * Method calculate the total net amount for the incoming Bill
+	 * 
+	 * @param List Product list
+	 * @param double Discount percentage
+	 * return double Total net amount
+	 */
+	public double getNetTotal(List&lt;Products&gt; products, double discountPercentage) {
+		
+<span class="fc" id="L59">		double nonGroceryTotal = 0.0;</span>
+<span class="fc" id="L60">		double groceryTotal = 0.0;</span>
+<span class="fc" id="L61">		double total = 0.0;</span>
+		
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		for(Products product: products) {</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">			if(product.getProductType().compareTo(BillUtils.GROCERY) != 0) {</span>
+<span class="fc" id="L65">				nonGroceryTotal = nonGroceryTotal + product.getTotalPrice();</span>
+				
+			} else {
+<span class="fc" id="L68">				groceryTotal = groceryTotal + product.getTotalPrice();</span>
+			}
+<span class="fc" id="L70">		}</span>
+		
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		if(discountPercentage != 0) {</span>
+<span class="fc" id="L73">			total = groceryTotal + (nonGroceryTotal - (nonGroceryTotal*discountPercentage));</span>
+<span class="fc" id="L74">			return total - (total / BillUtils.HUNDRED_PERCENT) * BillUtils.DISCOUNT_PER_ONE_HUNDRED;</span>
+		} else {
+<span class="fc" id="L76">			total = groceryTotal+nonGroceryTotal;</span>
+<span class="fc" id="L77">			return total - (total / BillUtils.HUNDRED_PERCENT) * BillUtils.DISCOUNT_PER_ONE_HUNDRED;</span>
+		}
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

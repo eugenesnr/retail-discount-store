@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bill.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">api</a> &gt; <a href="index.source.html" class="el_package">com.retail.store.api.model</a> &gt; <span class="el_source">Bill.java</span></div><h1>Bill.java</h1><pre class="source lang-java linenums">package com.retail.store.api.model;
+
+import java.util.List;
+
+
+/*
+ * @author Tlotlo Lebotse
+ * @version 1.0
+ * @description Bill object class containing bill attributes
+ * 
+ */
+public class Bill {
+	
+	private User user;
+	private List&lt;Products&gt; products;
+	private double netTotal;
+	
+<span class="fc" id="L18">	public Bill() {</span>
+		
+<span class="fc" id="L20">	}</span>
+	
+	public Bill(User user, List&lt;Products&gt; products, double netTotal) {
+<span class="fc" id="L23">		super();</span>
+<span class="fc" id="L24">		this.user = user;</span>
+<span class="fc" id="L25">		this.products = products;</span>
+<span class="fc" id="L26">		this.netTotal = netTotal;</span>
+<span class="fc" id="L27">	}</span>
+
+	public Bill(User user, List&lt;Products&gt; products) {
+<span class="fc" id="L30">		super();</span>
+<span class="fc" id="L31">		this.user = user;</span>
+<span class="fc" id="L32">		this.products = products;</span>
+<span class="fc" id="L33">	}</span>
+
+	public User getUser() {
+<span class="fc" id="L36">		return user;</span>
+	}
+
+	public void setUser(User user) {
+<span class="fc" id="L40">		this.user = user;</span>
+<span class="fc" id="L41">	}</span>
+
+	public List&lt;Products&gt; getProducts() {
+<span class="fc" id="L44">		return products;</span>
+	}
+
+	public void setProducts(List&lt;Products&gt; products) {
+<span class="fc" id="L48">		this.products = products;</span>
+<span class="fc" id="L49">	}</span>
+
+	public double getNetTotal() {
+<span class="fc" id="L52">		return netTotal;</span>
+	}
+
+	public void setNetTotal(double netTotal) {
+<span class="fc" id="L56">		this.netTotal = netTotal;</span>
+<span class="fc" id="L57">	}</span>
+
+	@Override
+	public String toString() {
+<span class="fc" id="L61">		return &quot;Bill [user=&quot; + user + &quot;, products=&quot; + products + &quot;, netTotal=&quot; + netTotal + &quot;]&quot;;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
