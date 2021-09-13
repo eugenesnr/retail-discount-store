@@ -58,3 +58,9 @@ Generated with Jacoco
 on cmd run : mvn clean then mvn install to generate the report. 
 The report will be in target/my-reports
 ![Ca](https://user-images.githubusercontent.com/43088501/133018107-116979cd-b6bc-4c98-b922-cd7ea345ab2d.PNG)
+
+
+#Uml
+
+![Retail Store UML](https://user-images.githubusercontent.com/43088501/133040042-4cc67445-fb45-464d-9a33-a664bf4fd615.png)
+
