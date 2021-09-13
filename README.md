@@ -10,6 +10,9 @@ A retail store offering different types of discounts to users
 SpringBoot
 Java 8
 
+#IDE
+Eclipse EE Version: 2021-03 (4.19.0)
+
 #End Point =>
 POST: localhost:8080/api/calculateBill
 
@@ -18,6 +21,15 @@ JSON
 
 #Api Testing In eclipse => 
   RUN ApiApplicationTests.java as a JUnit Test
+ 
+#Run app in eclipse
+1. navigate into project folder using cmd
+2. run (mvn clean)
+3. run (mvn install)
+4. or run (mvn install -DskipTests=true) : to skip tests 
+5. import project into eclipse as an Existing Maven Project
+6. Navigate to src/main/java/com/retail/store/api
+7. Run ApiApplication.java as a java project
 
 #Api testing app =>
 POSTMAN 7.36
