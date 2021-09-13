@@ -68,7 +68,7 @@ POSTMAN 7.36
 #Coverage Reports =>
 Generated with Jacoco
 on cmd run : mvn clean then mvn install to generate the report. 
-The report will be in target/my-reports
+The report will be in target/my-reports. Right click on the index.html and opne in browser to view the coverage.  
 ![Ca](https://user-images.githubusercontent.com/43088501/133018107-116979cd-b6bc-4c98-b922-cd7ea345ab2d.PNG)
 
 
