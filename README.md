@@ -34,7 +34,8 @@ JSON
 #Api testing app =>
 POSTMAN 7.36
 
-![Capture](https://user-images.githubusercontent.com/43088501/133017928-a232ab7c-c0d9-4a64-b870-6e38b1cee24d.PNG)
+![Ca](https://user-images.githubusercontent.com/43088501/135939033-eef130c0-aa28-47dc-bfc5-122d322c8644.PNG)
+
 
 #Example Input => 
   {
@@ -62,7 +63,7 @@ POSTMAN 7.36
 
 #Example Output =>
 {
-    "response": "Bill [user=User [firstName=Mark, lastName=Wilson, type=customer, joinDate=Sun Sep 08 02:00:00 SAST 2019], products=[Products [productName=Juice,   productPrice=100.0, productType=grocery, quantity=2], Products [productName=Hammer, productPrice=100.0, productType=hardware, quantity=1]], netTotal=280.25]"
+    "response": "Bill [user=User [firstName=Mark, lastName=Wilson, type=customer, joinDate=Sun Sep 08 02:00:00 SAST 2019], products=[Products [productName=Juice,   productPrice=100.0, productType=grocery, quantity=2], Products [productName=Hammer, productPrice=100.0, productType=hardware, quantity=1]], netTotal=285.0]"
 }
 
 #Coverage Reports =>
