@@ -71,10 +71,10 @@ public class BillServiceImplementation implements BillService{
 		
 		if(discountPercentage != 0) {
 			total = groceryTotal + (nonGroceryTotal - (nonGroceryTotal*discountPercentage));
-			return total - (total / BillUtils.HUNDRED_PERCENT) * BillUtils.DISCOUNT_PER_ONE_HUNDRED;
+			return total - (Math.floor(total / BillUtils.HUNDRED_PERCENT)) * BillUtils.DISCOUNT_PER_ONE_HUNDRED;
 		} else {
 			total = groceryTotal+nonGroceryTotal;
-			return total - (total / BillUtils.HUNDRED_PERCENT) * BillUtils.DISCOUNT_PER_ONE_HUNDRED;
+			return total - (Math.floor(total / BillUtils.HUNDRED_PERCENT)) * BillUtils.DISCOUNT_PER_ONE_HUNDRED;
 		}
 	}
 	
